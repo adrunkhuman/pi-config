@@ -1,0 +1,57 @@
+# GitHub Actions CI workflow for Python projects using Astral toolchain
+# Optimized for: uv (package manager), ruff (lint/format), ty (type check), pytest
+# Design goals: Fast, deterministic, avoids redundant work
+
+name: CI
+
+on:
+  # Push: Only run on main/master to avoid double-CI on PRs
+  # PRs trigger pull_request event below, push on feature branches would duplicate
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Standard checkout with full history (needed for proper change detection)
+      - uses: actions/checkout@v4
+      
+      # Install uv using official action
+      # Pinned to specific version for reproducibility; update periodically
+      - name: Install uv
+        uses: astral-sh/setup-uv@v10.0.1
+        with:
+          version: "0.12.9"
+      
+      # Alternative: Use setup-python + uv pip for faster Python install
+      # But uv python install respects pyproject.toml requires-python
+      - name: Setup Python
+        run: uv python install
+      
+      # Install dependencies using uv.lock for reproducibility
+      # --group dev: Include dev dependencies (ruff, ty, pytest)
+      - name: Install dependencies
+        run: uv sync --group dev
+      
+      # Run project checks through the locked environment
+      - name: Run ruff check
+        run: uv run ruff check .
+      
+      - name: Run ruff format check
+        run: uv run ruff format --check .
+      
+      - name: Run ty type check
+        run: uv run ty check
+      
+      - name: Run tests
+        run: uv run pytest
+
+# Notes on design decisions:
+# - Pinning uv version (0.12.9) ensures reproducible builds
+# - Using uv sync instead of pip install leverages uv.lock for deterministic deps
+# - No explicit caching needed: astral-sh/setup-uv handles uv cache automatically
+# - Adapt checks to the project layout and remove tools the project does not use

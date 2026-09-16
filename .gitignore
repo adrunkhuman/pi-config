@@ -1,0 +1,19 @@
+# Credentials and runtime state must never enter this config export.
+auth.json
+models-store.json
+.env
+.env.*
+*.pem
+*.key
+node_modules/
+sessions/
+backups/
+checkpoints/
+fff/
+git/
+npm/
+statusline/
+subagent-backup-*/
+tmp/
+*.bak*
+__pycache__/

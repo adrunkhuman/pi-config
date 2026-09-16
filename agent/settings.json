@@ -1,0 +1,56 @@
+{
+  "theme": "omarchy-system",
+  "lastChangelogVersion": "0.85.1",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-6-astra",
+  "hideThinkingBlock": false,
+  "modelThinkingLevels": {
+    "openai-codex/gpt-5.6-sol": "medium"
+  },
+  "tuiMode": "regular",
+  "terminal": {
+    "showImages": false,
+    "clearOnShrink": true
+  },
+  "kendex": {
+    "extensionManager": {
+      "config": {
+        "@vanillagreen/pi-tool-renderer": {
+          "registerBatchTool": false,
+          "showReadImages": "off",
+          "pendingStatusAnimation": true
+        }
+      }
+    }
+  },
+  "packages": [
+    "npm:@ogulcancelik/pi-codex-compaction@0.1.5",
+    "npm:@vanillagreen/pi-tool-renderer@2.0.1",
+    "npm:@ff-labs/pi-fff@0.10.6",
+    "npm:@narumitw/pi-web-search@0.1.3",
+    "npm:@pi-lab/webfetch@1.1.0",
+    "npm:@shvax/pi-statusline@0.9.2",
+    "npm:@k3_2o/pi-chrollo@0.4.3",
+    "npm:@weshipwork/pi-herdr@0.1.0",
+    "npm:pi-session-auto-rename@0.1.4",
+    "npm:pi-question-tool@0.1.1",
+    "npm:@fradser/pi-btw@0.2.8",
+    "npm:pi-zentui@0.24.0",
+    "git:github.com/adrunkhuman/pi-subagent@c10e54bb3c118001de9a6d6e0a0921eff082bdd9",
+    "npm:@narumitw/pi-lsp@0.49.7"
+  ],
+  "steeringMode": "all",
+  "transport": "auto",
+  "markdown": {
+    "mermaid": "streaming"
+  },
+  "defaultProjectTrust": "ask",
+  "enabledModels": [
+    "openai-codex/gpt-5.6-sol",
+    "openai-codex/gpt-5.6-terra",
+    "openai-codex/gpt-5.6-luna",
+    "openai-codex/gpt-6-astra",
+    "openrouter/z-ai/glm-5.3-flash"
+  ],
+  "defaultThinkingLevel": "low"
+}

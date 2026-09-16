@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "enabled": true,
+  "providers": {
+    "enabled": false,
+    "order": [
+      "openai-codex",
+      "llama.cpp"
+    ],
+    "defaults": {
+      "displayMode": "default",
+      "missingDataPolicy": "cached",
+      "refreshIntervalMs": 10000,
+      "maxCacheAgeMs": 300000,
+      "useCache": true,
+      "keepAfterFailure": true,
+      "refreshWhileActive": true,
+      "refreshDisabledProvider": false
+    },
+    "records": {
+      "openai-codex": {
+        "enabled": true,
+        "displayMode": "default",
+        "windows": {
+          "default": {
+            "visible": true,
+            "label": "",
+            "showBar": true,
+            "showPercent": true,
+            "showReset": true,
+            "resetFormat": "countdown",
+            "showUsed": true,
+            "showRemaining": true,
+            "showZero": false,
+            "width": 12
+          }
+        },
+        "activeModel": {
+          "project": "default",
+          "model": "default",
+          "effort": "default",
+          "context": "default",
+          "session": "default",
+          "throughput": "default",
+          "time": "default"
+        },
+        "supportedOverrides": [
+          "project",
+          "model",
+          "effort",
+          "context",
+          "session",
+          "throughput",
+          "time"
+        ]
+      },
+      "llama.cpp": {
+        "enabled": false,
+        "displayMode": "default",
+        "windows": {},
+        "activeModel": {
+          "project": "default",
+          "model": "default",
+          "effort": "default",
+          "context": "default",
+          "session": "default",
+          "throughput": "default",
+          "time": "default"
+        },
+        "supportedOverrides": [
+          "project",
+          "model",
+          "effort",
+          "context",
+          "session",
+          "throughput",
+          "time"
+        ]
+      }
+    }
+  },
+  "layout": {
+    "providerRows": "newline",
+    "placement": "below",
+    "maxWidth": 0,
+    "segmentOrder": [
+      "project",
+      "model",
+      "effort",
+      "context",
+      "session",
+      "throughput",
+      "time"
+    ],
+    "narrowPriority": [
+      "time",
+      "throughput",
+      "project",
+      "effort",
+      "model",
+      "session"
+    ]
+  },
+  "separators": {
+    "main": " >",
+    "projectGit": " > ",
+    "window": " | ",
+    "provider": "",
+    "iconLabel": "",
+    "labelValue": " ",
+    "spacingBefore": 0,
+    "spacingAfter": 0,
+    "trailingSpacing": 0,
+    "padding": "",
+    "preset": "Default"
+  },
+  "segments": {
+    "project": true,
+    "model": true,
+    "effort": true,
+    "context": true,
+    "session": true,
+    "throughput": false,
+    "time": false
+  },
+  "bars": {
+    "width": 8,
+    "fill": "█",
+    "empty": "░",
+    "capLeft": "╟",
+    "capRight": "╢",
+    "showPercent": true,
+    "style": "rounded",
+    "truecolor": true,
+    "warnAt": 80,
+    "critAt": 95
+  },
+  "thresholds": {
+    "contextWarn": 80,
+    "contextCrit": 95
+  },
+  "timing": {
+    "refreshIntervalMs": 10000,
+    "maxCacheAgeMs": 300000
+  },
+  "icons": {
+    "style": "minimal",
+    "symbols": {},
+    "providers": {}
+  },
+  "preview": {
+    "mode": "current"
+  },
+  "extras": {
+    "branch": true,
+    "cost": false,
+    "sessionElapsed": false,
+    "lastTurn": false,
+    "pending": false
+  },
+  "__unknown": {}
+}

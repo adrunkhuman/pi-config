@@ -1,0 +1,78 @@
+# Modern Python project configuration using Astral toolchain
+# Stack: uv (package manager) → ruff (lint/format) → ty (type check)
+# All tools written in Rust, designed to work together
+
+[project]
+name = "my-project"
+version = "0.1.0"
+description = "Project description"
+readme = "README.md"
+# Use latest stable Python; adjust based on project requirements
+requires-python = ">=3.14"
+
+[dependency-groups]
+# Local development dependencies; published user-facing extras belong in [project.optional-dependencies]
+dev = [
+    "ruff>=0.16.6",
+    "ty>=0.0.78",
+    "pytest>=9.1.1",
+]
+
+[project.scripts]
+# CLI entry point if building a command-line tool
+# my-tool = "my_package.cli:main"
+
+[build-system]
+# Modern build backends; avoid setuptools unless legacy compatibility needed
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+target-version = "py314"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "D203",  # conflicts with D211
+    "D213",  # conflicts with D212
+    "D100",  # too noisy for most repos
+    "D104",  # too noisy for most repos
+    "COM812",  # formatter conflict
+    "ISC001",  # formatter conflict
+    "E501",  # formatter owns line wrapping
+    "EM101",  # too pedantic for day-to-day work
+    "EM102",  # too pedantic for day-to-day work
+    "TRY003",  # long raise messages are acceptable
+    "G004",  # f-string logging tradeoff accepted
+    "T201",  # internal scripts may use print for operator-facing output
+    "FBT",  # high false-positive rate in practice
+    "TD",  # TODO ownership is team policy
+    "FIX",  # FIXME ownership is team policy
+    "ERA001",  # high false-positive rate
+    "CPY001",  # not relevant for most projects
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101", "ARG", "PLR2004", "D"]
+"__init__.py" = ["F401"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.ty.environment]
+# Python version for type checking - MUST match requires-python
+python-version = "3.14"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Uncomment if using async tests:
+# asyncio_mode = "auto"
+
+# Hatchling-specific configuration (only needed if using hatchling features)
+# [tool.hatch.build.targets.wheel]
+# packages = ["src/my_package"]

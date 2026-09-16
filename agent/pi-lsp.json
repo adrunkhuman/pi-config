@@ -1,0 +1,22 @@
+{
+  "ruff": {
+    "command": ["ruff", "server"],
+    "extensions": [".py", ".pyi"]
+  },
+  "ty": {
+    "command": ["ty", "server"],
+    "extensions": [".py", ".pyi"]
+  },
+  "gopls": {
+    "command": ["gopls"],
+    "extensions": [".go"]
+  },
+  "clangd": {
+    "command": ["clangd"],
+    "extensions": [".c", ".h", ".hh", ".hpp", ".hxx", ".cc", ".cpp", ".cxx"]
+  },
+  "biome": {
+    "command": ["biome", "lsp-proxy"],
+    "extensions": [".js", ".mjs", ".cjs", ".jsx", ".ts", ".mts", ".cts", ".tsx"]
+  }
+}

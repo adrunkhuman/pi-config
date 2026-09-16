@@ -1,0 +1,6 @@
+{
+  "app.session.resume": "ctrl+l",
+  "app.model.select": "alt+m",
+  "app.thinking.cycle": "ctrl+k",
+  "tui.editor.deleteToLineEnd": []
+}

@@ -1,0 +1,53 @@
+# Native prek configuration (prek.toml)
+# prek is a Rust-based pre-commit alternative, 10-100x faster
+# Supports both .pre-commit-config.yaml (backward compatible) and prek.toml (native)
+# New projects should use prek.toml for native features and performance
+
+[[repos]]
+# Astral's ruff - handles linting, formatting, import sorting
+repo = "https://github.com/astral-sh/ruff-pre-commit"
+rev = "v0.16.6"
+hooks = [
+    # ruff-check: Linting with auto-fix for safe issues
+    # --fix applies safe fixes automatically; manual review for unsafe
+    { id = "ruff-check", args = ["--fix"] },
+    # ruff-format: Code formatting (Black-compatible, but faster)
+    { id = "ruff-format" },
+]
+
+[[repos]]
+# Local hooks for tools not available as pre-commit repos
+repo = "local"
+hooks = [
+    # ty type checker - Astral's modern alternative to mypy/pyright
+    # Runs via uv to ensure consistent environment
+    {
+        id = "ty",
+        name = "ty type checker",
+        entry = "uv run ty check",
+        language = "system",
+        types = ["python"],
+        # pass_filenames=false: ty discovers files via pyproject.toml
+        pass_filenames = false,
+        # always_run=true: Run even when no Python files changed
+        # Type checking depends on imports which may change
+        always_run = true,
+    },
+]
+
+# Optional: Additional standard hooks for repository hygiene
+# [[repos]]
+# repo = "https://github.com/pre-commit/pre-commit-hooks"
+# rev = "v6.0.0"
+# hooks = [
+#     { id = "check-yaml" },
+#     { id = "end-of-file-fixer" },
+#     { id = "trailing-whitespace" },
+# ]
+
+# Installation:
+#   uv tool install prek && prek install
+# Usage:
+#   prek run          # Run on staged files
+#   prek run --all-files  # Run on entire repo
+#   prek uninstall    # Remove git hooks
