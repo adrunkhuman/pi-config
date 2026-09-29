@@ -1,7 +1,7 @@
 ---
 name: worker
 description: General-purpose worker for bounded tasks. Choose the model per call; use a fresh context or continue a related named session as useful.
-model: openai-codex/gpt-5.6-terra
+model: openai-codex/gpt-6-sol
 thinking: high
 tools: read, bash, edit, write, grep, find, ls, web_search, webfetch, search_memory, read_memory, lsp_diagnostics, lsp_fix
 inactivityTimeout: 600

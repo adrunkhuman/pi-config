@@ -10,26 +10,25 @@ One main agent owns decisions and delegates bounded tasks to a generic `worker`,
 
 | Use | Model | Thinking |
 | --- | --- | --- |
-| Default interactive session | OpenAI Codex `gpt-6-astra` | Low |
-| Routine search and mechanical work | OpenAI Codex `gpt-5.6-luna` | High for workers |
-| Localized coding and debugging; worker default | OpenAI Codex `gpt-5.6-terra` | High for workers |
-| Difficult reasoning and high-stakes review | OpenAI Codex `gpt-5.6-sol` | High for workers; medium interactive override |
+| Default interactive session; worker default | OpenAI Codex `gpt-6-sol` | High |
+| Routine search and mechanical work | OpenAI Codex `gpt-6-luna` | High for workers |
+| Difficult reasoning and high-stakes review | OpenAI Codex `gpt-6-astra` | High for workers |
 | Additional enabled model | OpenRouter `z-ai/glm-5.3-flash` | Session-dependent |
 | Automatic session naming | OpenAI Codex `gpt-5.6-luna` | Extension-controlled |
 
 ## Extensions
 
-Package versions are pinned in [settings.json](agent/settings.json); the custom subagent fork is pinned to a commit.
+Package versions are pinned in [settings.json](agent/settings.json); `mjakl/pi-subagent` is pinned to a commit. Codex compaction loads from a local checkout at `~/Projects/pi-codex-compaction-fix/packages/pi-codex-compaction`, which must exist for this exact configuration to work on another machine.
 
 | Area | Packages | Role |
 | --- | --- | --- |
-| Delegation | `adrunkhuman/pi-subagent` | Generic workers with optional persistent sessions |
+| Delegation | `mjakl/pi-subagent` | Generic workers with optional persistent sessions |
 | Terminal orchestration | `@weshipwork/pi-herdr` | Workspaces, panes, commands, and output monitoring |
 | Session continuity | `@k3_2o/pi-chrollo`, `@ogulcancelik/pi-codex-compaction`, `pi-session-auto-rename` | Past-session search, compaction, and session names |
 | Code navigation | `@ff-labs/pi-fff`, `@narumitw/pi-lsp` | File/content search, diagnostics, and source fixes |
 | Web research | `@narumitw/pi-web-search`, `@pi-lab/webfetch` | Search and page retrieval |
 | Interaction | `pi-question-tool`, `@fradser/pi-btw` | Structured questions and side conversations |
-| Terminal UI | `@vanillagreen/pi-tool-renderer`, `@shvax/pi-statusline`, `pi-zentui` | Tool output, status information, and editor/message presentation |
+| Terminal UI | `@vanillagreen/pi-tool-renderer`, `pi-zentui` | Tool output, editor, footer, and message presentation |
 
 The local [Herdr integration](agent/extensions/herdr-agent-state.ts) reports agent state to the terminal. FFF runs in override mode with its home-directory scan warning disabled.
 
@@ -59,7 +58,7 @@ The Omarchy skills are copied from the system-provided versions. Python and CI t
 
 ## Interface
 
-The `omarchy-system` theme is paired with Zentui's minimalist editor, labeled user messages, tree-style thinking steps, and animated working line. Thinking remains visible; terminal image rendering is disabled. The statusline emphasizes project, model, effort, context, and session information, with provider usage display disabled.
+The `omarchy-system` theme is paired with Zentui's minimalist editor and footer, labeled user messages, tree-style thinking steps, and animated working line. Thinking remains visible; terminal image rendering is disabled. The separate `pi-statusline` extension has been removed.
 
 | Shortcut | Action |
 | --- | --- |
