@@ -2,7 +2,7 @@
   "theme": "omarchy-system",
   "lastChangelogVersion": "0.87.1",
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-6-sol",
+  "defaultModel": "gpt-6.1-sol",
   "hideThinkingBlock": false,
   "tuiMode": "regular",
   "terminal": {
@@ -42,7 +42,7 @@
   },
   "defaultProjectTrust": "ask",
   "enabledModels": [
-    "openai-codex/gpt-6-sol",
+    "openai-codex/gpt-6.1-sol",
     "openai-codex/gpt-6-luna",
     "openai-codex/gpt-6-astra",
     "openrouter/z-ai/glm-5.3-flash"

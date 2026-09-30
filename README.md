@@ -10,7 +10,7 @@ One main agent owns decisions and delegates bounded tasks to a generic `worker`,
 
 | Use | Model | Thinking |
 | --- | --- | --- |
-| Default interactive session; worker default | OpenAI Codex `gpt-6-sol` | High |
+| Default interactive session; worker default | OpenAI Codex `gpt-6.1-sol` | High |
 | Routine search and mechanical work | OpenAI Codex `gpt-6-luna` | High for workers |
 | Difficult reasoning and high-stakes review | OpenAI Codex `gpt-6-astra` | High for workers |
 | Additional enabled model | OpenRouter `z-ai/glm-5.3-flash` | Session-dependent |
