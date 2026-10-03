@@ -1,0 +1,10 @@
+--- a/extensions/herdr.ts
++++ b/extensions/herdr.ts
+@@ -23,6 +23,7 @@
+ 
+ 	pi.registerTool({
+ 		name: "herdr",
++		exposure: "model-only",
+ 		label: "herdr",
+ 		description:
+ 			"Herdr-native pane orchestration for long-running workflows. " +

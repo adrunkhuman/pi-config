@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "context7": {
+      "url": "https://mcp.context7.com/mcp/oauth",
+      "description": "Version-specific documentation and examples for third-party libraries.",
+      "exposure": "codemode",
+      "enabled": true
+    },
+    "github": {
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "!key=$(gh auth token --hostname github.com) && test -n \"$key\" && printf 'Bearer %s' \"$key\"",
+        "X-MCP-Toolsets": "repos,issues,pull_requests,actions"
+      },
+      "description": "GitHub repository, issue, pull request, and Actions searches, inspection, and authorized updates.",
+      "exposure": "codemode",
+      "enabled": true
+    }
+  }
+}

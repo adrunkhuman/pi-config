@@ -1,5 +1,8 @@
 # Credentials and runtime state must never enter this config export.
 auth.json
+mcp-auth.json
+mcp.log*
+mcp-secrets/
 models-store.json
 .env
 .env.*

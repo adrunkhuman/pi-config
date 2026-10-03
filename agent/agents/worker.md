@@ -1,9 +1,9 @@
 ---
 name: worker
 description: General-purpose worker for bounded tasks. Choose the model per call; use a fresh context or continue a related named session as useful.
-model: openai-codex/gpt-6.1-sol
+model: openai/gpt-6.1-sol
 thinking: high
-tools: read, bash, edit, write, grep, find, ls, web_search, webfetch, search_memory, read_memory, lsp_diagnostics, lsp_fix
+tools: read, bash, edit, write, grep, find, ls, codemode, web_search, webfetch, search_memory, read_memory, lsp_diagnostics, lsp_fix
 inactivityTimeout: 600
 sessionPreference: either
 sessionHint: Omit session for fresh disposable work; use a new handle to retain context, or the same handle for related follow-ups. Prefer fresh contexts for unrelated work and independent review; retire large histories when retained knowledge no longer helps.

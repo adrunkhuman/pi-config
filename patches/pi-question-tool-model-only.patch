@@ -1,0 +1,18 @@
+--- a/extensions/index.ts
++++ b/extensions/index.ts
+@@ -156,6 +156,7 @@
+ 
+ 	pi.registerTool({
+ 		name: "question",
++		exposure: "model-only",
+ 		label: "Question",
+ 		description:
+ 			"Ask the user a question and let them pick from options. Use when you need user input to proceed.",
+@@ -391,6 +392,7 @@
+ 
+ 	pi.registerTool({
+ 		name: "questionnaire",
++		exposure: "model-only",
+ 		label: "Questionnaire",
+ 		description:
+ 			"Ask the user one or more questions. Use for clarifying requirements, getting preferences, or confirming decisions. For single questions, shows a simple option list. For multiple questions, shows a tab-based interface.",
